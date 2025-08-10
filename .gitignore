@@ -78,3 +78,5 @@ dmypy.json
 # Local environment variables
 .env
 .env.*
+
+LLM Book Recommender\vector-search-practice.ipynb
