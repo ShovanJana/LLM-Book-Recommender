@@ -7,7 +7,8 @@ from transformers import pipeline
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_chroma import Chroma
-from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
 
 
 books= pd.read_csv("books_with_emotions.csv")
@@ -17,7 +18,7 @@ books['large_thumbnail']= np.where(
 )
 
 # Load BAAI embedding model with LangChain wrapper
-embedding_function = SentenceTransformerEmbeddings(model_name="BAAI/bge-base-en-v1.5")
+embedding_function = HuggingFaceEmbeddings(model_name="BAAI/bge-base-en-v1.5")
 
 db_books = Chroma(
     persist_directory="./db_books" ,
